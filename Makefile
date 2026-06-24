@@ -1,7 +1,7 @@
 .PHONY: install test lint format typecheck run-baseline run-multi clean
 
 install:
-	pip install -e "[dev,llm]"
+	pip install -r requirements.txt
 
 test:
 	pytest

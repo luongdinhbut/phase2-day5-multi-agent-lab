@@ -17,11 +17,31 @@ class Settings(BaseSettings):
     app_env: str = Field(default="local", validation_alias="APP_ENV")
     log_level: str = Field(default="INFO", validation_alias="LOG_LEVEL")
 
-    openai_api_key: str | None = Field(default=None, validation_alias="OPENAI_API_KEY")
-    openai_model: str = Field(default="gpt-4o-mini", validation_alias="OPENAI_MODEL")
+    fireworks_api_key: str | None = Field(default=None, validation_alias="FIREWORKS_API_KEY")
+    fireworks_model: str = Field(
+        default="accounts/fireworks/models/deepseek-v4-pro",
+        validation_alias="FIREWORKS_MODEL",
+    )
+    fireworks_base_url: str = Field(
+        default="https://api.fireworks.ai/inference/v1/chat/completions",
+        validation_alias="FIREWORKS_BASE_URL",
+    )
+    fireworks_max_tokens: int = Field(default=131072, ge=1, validation_alias="FIREWORKS_MAX_TOKENS")
+    fireworks_top_k: int = Field(default=40, ge=0, validation_alias="FIREWORKS_TOP_K")
+    fireworks_presence_penalty: float = Field(
+        default=0.0,
+        validation_alias="FIREWORKS_PRESENCE_PENALTY",
+    )
+    fireworks_frequency_penalty: float = Field(
+        default=0.0,
+        validation_alias="FIREWORKS_FREQUENCY_PENALTY",
+    )
 
     langsmith_api_key: str | None = Field(default=None, validation_alias="LANGSMITH_API_KEY")
-    langsmith_project: str = Field(default="multi-agent-research-lab", validation_alias="LANGSMITH_PROJECT")
+    langsmith_project: str = Field(
+        default="multi-agent-research-lab",
+        validation_alias="LANGSMITH_PROJECT",
+    )
 
     tavily_api_key: str | None = Field(default=None, validation_alias="TAVILY_API_KEY")
 

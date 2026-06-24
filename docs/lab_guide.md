@@ -22,7 +22,8 @@ File gợi ý:
 - `src/multi_agent_research_lab/cli.py`
 - `src/multi_agent_research_lab/services/llm_client.py`
 
-TODO(student): thay baseline placeholder bằng một call LLM thật.
+Baseline starter đã gọi FireworksAI qua `FIREWORKS_API_KEY`. Benchmark metrics tối thiểu
+đã có latency, quality heuristic, source count, error count và citation coverage.
 
 ## Milestone 2: Supervisor
 
@@ -31,7 +32,9 @@ File gợi ý:
 - `src/multi_agent_research_lab/agents/supervisor.py`
 - `src/multi_agent_research_lab/graph/workflow.py`
 
-TODO(student): implement routing policy.
+Routing policy mặc định: Researcher chạy khi thiếu source/notes, Analyst chạy khi có
+research notes nhưng chưa có analysis, Writer chạy khi đã có analysis, Supervisor dừng
+khi có final answer hoặc chạm `MAX_ITERATIONS`.
 
 Gợi ý câu hỏi thiết kế:
 
@@ -49,7 +52,8 @@ File gợi ý:
 - `agents/analyst.py`
 - `agents/writer.py`
 
-TODO(student): implement từng worker.
+Worker mặc định đã chạy được offline. Researcher dùng local mock search, Analyst và
+Writer dùng FireworksAI khi có key và fallback deterministic khi chưa có key hoặc provider lỗi.
 
 ## Milestone 4: Trace và benchmark
 

@@ -5,9 +5,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY pyproject.toml README.md ./
+COPY pyproject.toml README.md requirements.txt ./
 COPY src ./src
-RUN pip install --no-cache-dir -e ".[llm]"
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY configs ./configs
 COPY docs ./docs

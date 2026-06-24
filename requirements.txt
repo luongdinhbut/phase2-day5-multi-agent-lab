@@ -1,0 +1,10 @@
+# Python >=3.11
+# Installs the lab runtime dependencies from pyproject.toml.
+-e .
+
+# Optional development tools:
+# pip install -e ".[dev]"
+
+# Optional graph/tracing workflow tools:
+# pip install -e ".[graph]"
+# pip install -e ".[tracing]" -i https://pypi.org/simple
